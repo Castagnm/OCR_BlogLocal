@@ -7,9 +7,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListItemComponent implements OnInit {
 
-  constructor() { }
+  likes : number = 0;
+  dislikes : number = 0;
+  title : string = 'Post title';
+  content : string = 'Post content';
+  createdAt = new Date();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
+  
+  addLike() {
+	this.likes++;
+  }
+  
+  addDislike() {
+	this.dislikes++;
+  }
 
+  onLikeClick() {
+	this.addLike();
+  }
+  
+  onDislikeClick() {
+	this.addDislike();
+  }
+  
+  isPostLiked() {
+	return this.likes >= this.dislikes;
+  }
 }

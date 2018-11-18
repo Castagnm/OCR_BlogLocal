@@ -1,7 +1,12 @@
-<li class ="list-group-item-success">
-<p>This is a post.</p>
-<p>This is the creation date of the post.</p>
-<p>This is the content of the post.</p>
-<button>I like it</button>
-<button>Don't like it</button>
+<li	[ngClass]=	"{
+		'list-group-item': true,
+		'list-group-item-success': isPostLiked() === true,
+		'list-group-item-danger': isPostLiked() === false
+	}"
+>
+<p>{{title}}</p>
+<p>{{createdAt | date : 'short'}}</p>
+<p>{{content}}</p>
+<button class="btn btn-success" (click)="onLikeClick()"><strong>I like it</strong></button>
+<button class="btn btn-danger ml-1 mr-1" (click)="onDislikeClick()"><strong>Don't like it</strong></button>
 </li>
