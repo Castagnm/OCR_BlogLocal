@@ -1,7 +1,7 @@
 <li	[ngClass]=	"{
 		'list-group-item': true,
-		'list-group-item-success': isPostLiked() === true,
-		'list-group-item-danger': isPostLiked() === false
+		'list-group-item-success': isPostLiked() === 1,
+		'list-group-item-danger': isPostLiked() === -1
 	}"
 >
 <p>{{title}}</p>

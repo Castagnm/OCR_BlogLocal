@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-list-item',
@@ -9,8 +9,8 @@ export class PostListItemComponent implements OnInit {
 
   likes : number = 0;
   dislikes : number = 0;
-  title : string = 'Post title';
-  content : string = 'Post content';
+  @Input() title : string = 'Post title';
+  @Input() content : string = 'Post content';
   createdAt = new Date();
 
   constructor() {
@@ -36,6 +36,8 @@ export class PostListItemComponent implements OnInit {
   }
   
   isPostLiked() {
-	return this.likes >= this.dislikes;
+	if(this.likes > this.dislikes) return 1;
+	else if(this.likes < this.dislikes) return -1;
+	else return 0;
   }
 }
